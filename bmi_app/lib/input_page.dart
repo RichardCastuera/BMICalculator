@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'reusablecard_content.dart';
+import 'icon_content.dart';
 
 const bottomContainerHeight = 80.0;
 const containerColor = Color(0xFF121E33);
@@ -23,16 +26,17 @@ class _InputPageState extends State<InputPage> {
         children: [
           Expanded(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Expanded(
                   child: reusableCard(
                     containerColor,
+                    iconData(FontAwesomeIcons.mars, 'Male'),
                   ),
                 ),
                 Expanded(
                   child: reusableCard(
                     containerColor,
+                    iconData(FontAwesomeIcons.venus, 'Female'),
                   ),
                 ),
               ],
@@ -41,20 +45,22 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: reusableCard(
               containerColor,
+              Column(),
             ),
           ),
           Expanded(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Expanded(
                   child: reusableCard(
                     containerColor,
+                    Column(),
                   ),
                 ),
                 Expanded(
                   child: reusableCard(
                     containerColor,
+                    Column(),
                   ),
                 ),
               ],
@@ -67,16 +73,6 @@ class _InputPageState extends State<InputPage> {
             height: bottomContainerHeight,
           ),
         ],
-      ),
-    );
-  }
-
-  Container reusableCard(Color color) {
-    return Container(
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(10.0),
       ),
     );
   }
