@@ -7,7 +7,7 @@ Column iconData(IconData gender, String label) {
     children: [
       FaIcon(
         gender,
-        size: 80.0,
+        size: 50.0,
       ),
       SizedBox(
         height: 10.0,

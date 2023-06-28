@@ -5,6 +5,7 @@ import 'icon_content.dart';
 
 const bottomContainerHeight = 80.0;
 const containerColor = Color(0xFF121E33);
+const inactiveCardColor = Color(0xFF111328);
 const bottomContainerColor = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
@@ -15,6 +16,28 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
+
+  void updateColour(int sex) {
+    if (sex == 1) {
+      if (maleCardColor == inactiveCardColor) {
+        maleCardColor = containerColor;
+        femaleCardColor = inactiveCardColor;
+      } else {
+        maleCardColor = inactiveCardColor;
+      }
+    }
+    if (sex == 2) {
+      if (femaleCardColor == inactiveCardColor) {
+        femaleCardColor = containerColor;
+        maleCardColor = inactiveCardColor;
+      } else {
+        femaleCardColor = inactiveCardColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,15 +51,29 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: reusableCard(
-                    containerColor,
-                    iconData(FontAwesomeIcons.mars, 'Male'),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateColour(1);
+                      });
+                    },
+                    child: reusableCard(
+                      maleCardColor,
+                      iconData(FontAwesomeIcons.mars, 'Male'),
+                    ),
                   ),
                 ),
                 Expanded(
-                  child: reusableCard(
-                    containerColor,
-                    iconData(FontAwesomeIcons.venus, 'Female'),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateColour(2);
+                      });
+                    },
+                    child: reusableCard(
+                      femaleCardColor,
+                      iconData(FontAwesomeIcons.venus, 'Female'),
+                    ),
                   ),
                 ),
               ],
