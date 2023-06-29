@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 GestureDetector reusableCard(
-    Color color, Widget cardChild, void Function() onPress) {
+    {required Color color,
+    required Widget cardChild,
+    required void Function() onPress}) {
   return GestureDetector(
     onTap: onPress,
     child: Container(
