@@ -4,7 +4,14 @@ import '../components/bottom_content.dart';
 import '../components/constant.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key? key}) : super(key: key);
+  ResultPage(
+      {required this.bmiResult,
+      required this.resultText,
+      required this.interpretation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +41,20 @@ class ResultPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    'OVERWEIGHT',
+                    resultText,
                     style: kResultStyle,
                   ),
                   Text(
-                    '26.7',
+                    bmiResult,
                     style: kLargeNumberTextStyle,
                   ),
-                  Text(
-                    'Comments',
-                    style: kCommentStyle,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Text(
+                      interpretation,
+                      style: kCommentStyle,
+                      textAlign: TextAlign.center,
+                    ),
                   )
                 ],
               ),
