@@ -1,2 +1,0 @@
-adb tcpip 5555
-adb connect 10.0.0.40:5555
